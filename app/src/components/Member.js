@@ -1,12 +1,10 @@
 import { React } from "react";
 import { Link, useParams } from "react-router-dom";
-import Image from "react-bootstrap/Image";
 import agnetha from "../images/agnetha.jpg";
 import bjorn from "../images/bjorn.jpg";
 import benny from "../images/benny.jpg";
 import annifrid from "../images/annifrid.jpg";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import "./Member.css";
 
 const MEMBERS = {
   agnetha: {
@@ -48,27 +46,13 @@ export default function Member() {
   }
 
   return (
-    <div>
-      <Row>
-        <Col>
-          <h1>{member.name}</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col sm={2}>
-          <Image src={member.image} className="w-100" />
-        </Col>
-        <Col>
-          <p>{member.bio}</p>
-        </Col>
-      </Row>
-      <Row className="py-5">
-        <Col>
-          <p>
-            Go back <Link to="/">home</Link>.
-          </p>
-        </Col>
-      </Row>
+    <div className="Member">
+      <h1>{member.name}</h1>
+      <img src={member.image} alt="Band member"/>
+      <p>{member.bio}</p>
+      <p>
+        Go back <Link to="/">home</Link>.
+      </p>
     </div>
   );
 }
